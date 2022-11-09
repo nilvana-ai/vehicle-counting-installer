@@ -53,6 +53,7 @@ services:
         max-size: "10m"
   infer:
     image: quay.io/nilvana/vehicle-counting:1.0.0-infer-jp46-nx
+    privileged: true
     depends_on:
       - mosquitto
     volumes:
@@ -74,6 +75,7 @@ services:
         max-size: "10m"
   rule:
     image: quay.io/nilvana/vehicle-counting:1.0.0-rule-jp46
+    privileged: true
     depends_on:
       timescaledb:
         condition: service_healthy
